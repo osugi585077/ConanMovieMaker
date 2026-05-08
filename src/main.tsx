@@ -87,7 +87,7 @@ function App() {
   const [message, setMessage] = useState("JPG / PNG / WebP、10MBまで");
 
   useEffect(() => {
-    loadImage("/original-aoyama.png", "original-aoyama.png")
+    loadImage(`${import.meta.env.BASE_URL}original-aoyama.png`, "original-aoyama.png")
       .then(setLogo)
       .catch(() => setMessage("ロゴ素材を読み込めませんでした"));
   }, []);
