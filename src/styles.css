@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  button,
+  input {
+    font: inherit;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply min-h-12 rounded-md px-4 text-sm font-bold transition disabled:cursor-not-allowed disabled:opacity-45 sm:min-h-11;
+  }
+
+  .btn.primary {
+    @apply bg-cyan-400 text-neutral-950 hover:bg-cyan-300;
+  }
+
+  .btn.secondary {
+    @apply border border-neutral-700 bg-neutral-900 text-neutral-100 hover:border-neutral-500;
+  }
+
+  .label {
+    @apply mb-1 block text-xs font-semibold text-neutral-400;
+  }
+
+  .field {
+    @apply min-h-12 w-full rounded-md border border-neutral-700 bg-neutral-950 px-3 text-base text-neutral-100 outline-none transition focus:border-cyan-400 disabled:cursor-not-allowed disabled:opacity-45 sm:min-h-11 sm:text-sm;
+  }
+
+  .range {
+    @apply h-12 w-full accent-cyan-400 disabled:cursor-not-allowed disabled:opacity-45 sm:h-11;
+  }
+
+  .toggle {
+    @apply h-8 w-8 accent-cyan-400 disabled:cursor-not-allowed disabled:opacity-45 sm:h-7 sm:w-7;
+  }
+}
