@@ -275,7 +275,12 @@ function App() {
             <div>
               <h1 className="text-2xl font-bold tracking-normal sm:text-3xl">コナン映画予告メーカー</h1>
               <p className="mt-2 text-sm font-medium text-cyan-200 sm:text-base">背景画像をアップして映画版コナン風の予告画像を作ろう</p>
-              <p className="mt-1 text-sm text-neutral-400">{message}</p>
+              <p className="mt-1 text-xs text-neutral-500 sm:text-sm">サーバーに画像は保存されることはありません</p>
+              <div className="mt-4 max-w-xs sm:max-w-sm">
+                <img className="w-full rounded-md border border-neutral-800 shadow-xl" src={`${import.meta.env.BASE_URL}example.png`} alt="作成例" />
+                <p className="mt-2 text-center text-xs font-medium text-neutral-400 sm:text-sm">このような画像ができます</p>
+              </div>
+              <p className="mt-3 text-sm text-neutral-400">{message}</p>
             </div>
             <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
               <button className="btn secondary" onClick={reset} disabled={!base}>
@@ -325,7 +330,12 @@ function App() {
           </Panel>
         </aside>
       </div>
-      <footer className="mx-auto w-full max-w-7xl px-3 pb-6 text-center text-xs text-neutral-500 sm:px-6">サーバーに画像は保存されることはありません</footer>
+      <footer className="mx-auto w-full max-w-7xl px-3 pb-6 text-center text-xs text-neutral-500 sm:px-6">
+        Creatived by{" "}
+        <a className="font-semibold text-cyan-300 underline-offset-4 hover:underline" href="https://github.com/osugi585077" target="_blank" rel="noreferrer">
+          Osugi
+        </a>
+      </footer>
     </main>
   );
 }
