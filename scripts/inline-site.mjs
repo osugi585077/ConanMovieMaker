@@ -16,12 +16,12 @@ if (!scriptMatch || !cssMatch) {
 
 const scriptPath = scriptMatch[1].replace(/^\.\//, "");
 const cssPath = cssMatch[1].replace(/^\.\//, "");
-const script = await readFile(join(distDir, scriptPath), "utf8");
-const css = await readFile(join(distDir, cssPath), "utf8");
+const script = (await readFile(join(distDir, scriptPath), "utf8")).replace(/<\/script/gi, "<\\/script");
+const css = (await readFile(join(distDir, cssPath), "utf8")).replace(/<\/style/gi, "<\\/style");
 
 html = html
-  .replace(cssMatch[0], `<style>\n${css}\n</style>`)
-  .replace(scriptMatch[0], `<script type="module">\n${script}\n</script>`);
+  .replace(cssMatch[0], () => `<style>\n${css}\n</style>`)
+  .replace(scriptMatch[0], () => `<script type="module">\n${script}\n</script>`);
 
 await mkdir(siteDir, { recursive: true });
 await writeFile(join(siteDir, "index.html"), html);
